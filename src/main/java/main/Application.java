@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 
+import main.security.role.controller.RoleRepository;
+import main.security.role.model.Role;
 import main.security.user.controller.UserRepository;
 import main.security.user.model.User;
 
@@ -15,19 +17,24 @@ import main.security.user.model.User;
 public class Application {
 	
 	private final static Logger log = LoggerFactory.getLogger(Application.class);
-	@Autowired UserRepository up;
+	@Autowired UserRepository ur;
+	@Autowired RoleRepository rr;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
 	
 	@Bean
-	  public CommandLineRunner demo(UserRepository up) {
+	public CommandLineRunner demo(UserRepository ur, RoleRepository rr) {
 	    return (args) -> {
-	      // some persons
-	      User user1 = new User("phil", "phil");
-
-	      up.save(user1);
+	    	Role role1 = new Role("NORMALUSER");
+	    	Role role2 = new Role("ADMIN");
+	    	
+	    	rr.save(role1);
+	    	rr.save(role2);
+	    	
+	    	User user1 = new User("phil", "phil", 0L);
+	    	ur.save(user1);
 	    };
 	  }
 	  
@@ -35,5 +42,4 @@ public class Application {
 	  AppEventHandler appEventHandler() {
 	      return new AppEventHandler();
 	  }
-
 }

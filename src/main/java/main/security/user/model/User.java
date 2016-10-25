@@ -1,6 +1,8 @@
 package main.security.user.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,20 +14,21 @@ import javax.persistence.ManyToOne;
 
 import org.springframework.util.Assert;
 
-import main.guestbook.*;
-//import main.security.role.model.Role;
+import main.security.role.model.Role;
+
 
 @Entity
 public class User implements Serializable{
 	
-	public User(String strUsername, String strPassword) {
+	public User(String strUsername, String strPassword, Long role_id) {
 		
 		Assert.hasText(strUsername);
 	    Assert.hasText(strPassword);
-
+	
 	    this.strUsername = strUsername;
 	    this.strPassword = strPassword;
-	  }
+	    //this.setRole_id(role_id);
+	}
 	
 	protected User() {
 		
@@ -42,11 +45,10 @@ public class User implements Serializable{
 	@Column(name="EMail")
 	private String strPassword;
 	
-	/*
+	
 	@ManyToOne(targetEntity = Role.class)
 	@JoinColumn(name = "role_id", referencedColumnName = "role_id")
-	private Role roles;
-	*/
+	private List<Role> roles = new ArrayList<Role>();
 	
 	
 	//getter & setter
@@ -74,6 +76,14 @@ public class User implements Serializable{
 		this.strPassword = strPassword;
 	}
 	
+	public List<Role> getRoles(){
+		return this.roles;
+	}
+	
+	public void setRoles(Role role){
+		this.roles.add(role);
+	}
+	
  	
  	@Override
 	public String toString() {
@@ -81,7 +91,7 @@ public class User implements Serializable{
 				"LongUser_id=" + LongUser_id +
 				", strUsername=" + strUsername +
 				", strPassword=" + strPassword +
-				/*", roles=" + roles +*/
+				", roles=" + roles +
 				'}';
 	}
 }

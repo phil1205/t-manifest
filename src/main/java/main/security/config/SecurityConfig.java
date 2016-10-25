@@ -19,6 +19,16 @@ import main.security.*;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
   
 	@Autowired
+	private UserDetailsService userDetailsService;
+	
+	/*
+	@Autowired
+	public void configureAuthenticationManagerBuilder(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService);
+	}
+	*/
+	
+	@Autowired
 	public void configureAuthenticationManagerBuilder(AuthenticationManagerBuilder auth) throws Exception {
         auth
         	.inMemoryAuthentication().withUser("username").password("password")
@@ -31,9 +41,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	      .httpBasic()
 	    .and()
 	      .authorizeRequests()
-	        .antMatchers("/users", "/index.html", "/home.html", "/login.html", "/").permitAll()
-	        .antMatchers("/vorstand/**").hasRole("ADMIN") //
-			.antMatchers("/**").hasRole("NORMALUSER") // 
+	        .antMatchers("/users", "/roles", "/logout", "/index.html", "/home.html", "/login.html", "/").permitAll()
+	        .antMatchers("/vorstand/**").hasRole("ADMIN")
+			.antMatchers("/**").hasRole("NORMALUSER")
 	        .anyRequest().authenticated()
 	    .and()
 	    	.formLogin()
