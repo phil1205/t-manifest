@@ -1,3 +1,4 @@
 target
 src/test
 src/main/webapp/slider
+.DS_Store
