@@ -1,0 +1,66 @@
+<!-- include lib for blueimp-gallery -->
+<link rel="stylesheet" href="../lib/gallery-2.21.3/css/blueimp-gallery.min.css">
+<script src="../lib/gallery-2.21.3/js/blueimp-gallery.min.js"></script>
+
+<div ng-controller="GalleryCtrl" data-ng-init="resetDD()">
+
+	<div class="btn-group" role="group" aria-label="...">
+		<div class="btn-group" role="group">
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span ng-bind="lblYear + ' '"></span><span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li class="dropdown-header">Jahr</li>
+				<li ng-repeat="gallery in galleries" value="gallery.value" required>
+					<a ng-click="setYear(gallery.value, gallery.year)" ng-bind="gallery.year"></a>
+				</li>
+	   		</ul>
+		</div>
+		
+		<div class="btn-group" role="group" ng-show="isYearTrue()">
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span ng-bind="lblEvent + ' '"></span><span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li class="dropdown-header">Event</li>
+				<li ng-repeat="eventFromYear in eventsFromYear" value="eventFromYear.value" required>
+					<a ng-click="setEvent(eventFromYear.value, eventFromYear.title, eventFromYear.path)" ng-bind="eventFromYear.title"></a>
+				</li>
+	   		</ul>
+		</div>
+	</div>
+	
+	<!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+	<div id="blueimp-gallery" class="blueimp-gallery">
+	    <div class="slides"></div>
+	    <h3 class="title"></h3>
+	    <a class="prev">‹</a>
+	    <a class="next">›</a>
+	    <a class="close">×</a>
+	    <a class="play-pause"></a>
+	    <ol class="indicator"></ol>
+	</div>
+
+	<div ng-show="isGalleryTrue()">
+		</br>
+	
+		<!-- linking pictures to gallery -->
+		<div id="links">
+		    <a ng-repeat="file in files" ng-href="{{file.path}}">
+		    	<div class="gLogoDiv"><img class="gLogoImg" ng-src="{{file.thumbnail}}"></div>
+		    </a>
+		</div>
+	</div>
+
+</div>
+
+<script>
+document.getElementById('links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+</script>

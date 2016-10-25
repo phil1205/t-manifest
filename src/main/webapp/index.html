@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html lang="de" ng-app="JGApp" ng-controller="IndexCtrl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Michel Kühne, Phil Bender"/>
+    <meta name ="keywords" content="Junge Gesellschaft Barwedel, JGB, JG B, Barwedel, JG Barwedel, Junge Gesellschaft, JG Barwedel Startseite"/>
+
+    <link rel="shortcut icon" type="image/x-icon" href="resources/img/default/favicon.ico"/>
+    
+    <title ng-bind="'JGB &mdash; ' + title"></title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="resources/js/lib/bootstrap-3.3.7-dist/css/bootstrap.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="resources/js/lib/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Optional Stylesheet -->
+    <link rel="stylesheet" href="resources/css/style.css">
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script type="text/javascript" src="resources/js/lib/jquery-3.1.1.min.js"></script>
+
+	<!-- momentJs -->
+    <script type="text/javascript" src="resources/js/lib/moment/moment.min.js"></script>
+    <script type="text/javascript" src="resources/js/lib/moment/locales/de.js"></script>
+
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="resources/js/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+    <!--  Angular-Script -->
+    <script type="text/javascript" src="resources/js/lib/angular.min.js"></script>
+    <script type="text/javascript" src="resources/js/lib/angular-route.js"></script>
+    <script type="text/javascript" src="resources/js/lib/angular-resource.js"></script>
+    
+    <!--  Angular App -->
+    <script type="text/javascript" src="resources/js/app/app.js"></script>
+    <!--  Angular Controller -->
+    <script type="text/javascript" src="resources/js/app/controller/indexCtrl.js"></script>
+    <script type="text/javascript" src="resources/js/app/controller/oldExecutivesCtrl.js"></script>
+    <script type="text/javascript" src="resources/js/app/controller/galleryCtrl.js"></script>
+    <script type="text/javascript" src="resources/js/app/controller/guestbookCtrl.js"></script>
+</head>
+<body>
+	</br>
+	<div class="container">
+		<!-- logo in header -->
+		<div class="text-center">
+			</br>
+			<img src="resources/img/logo/logo.png" style="width:150px; text-align: center">
+		</div>
+		</br>
+		
+		<!-- navbar -->
+		<nav class="navbar navbar-dark bg-success navbar-static-top" role="navigation" data-ng-init="route('/', 1)">
+				
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<a class="navbar-brand">
+						<span>JG Barwedel</span>
+					</a>
+				</button>
+				
+			</div>
+			
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li ng-class="{active: selected==1}"><a ng-click="route('/', 1)" role="button">Home</a></li>
+					<li ng-class="{active: selected==2}"><a ng-click="route('/aktuell', 2)" role="button">Aktuell</a></li>
+					
+					<li class="dropdown" ng-class="{active: selected > 2.9 && selected < 4}">
+						<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><!-- role="button" aria-haspopup="true" aria-expanded="false" --> 
+							Über uns
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li ng-class="{active: selected==3.1}"><a ng-click="route('/jgb/gruendung', 3.1)" role="button">Gründung</a> </li>
+							<li ng-class="{active: selected==3.2}"><a ng-click="route('/jgb/geschichte', 3.2)" role="button">Geschichte</a> </li>
+						</ul>
+					</li>
+					
+					<li class="dropdown" ng-class="{active: selected > 3.9 && selected < 5}">
+						<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
+							Events 
+							<b class="caret"> </b>
+						</a>
+						<ul class="dropdown-menu">
+							<li ng-class="{active: selected==4.1}"><a ng-click="route('/veranstaltungen/openAir', 4.1)" role="button">Open Air Fete</a> </li>
+							<li ng-class="{active: selected==4.2}"><a ng-click="route('/veranstaltungen/bobbyCar', 4.2)" role="button">Bobby Car Rennen</a> </li>
+							<li ng-class="{active: selected==4.3}"><a ng-click="route('/veranstaltungen/fasching', 4.3)" role="button">Fasching</a> </li>
+							<li ng-class="{active: selected==4.4}"><a ng-click="route('/veranstaltungen/beerAdventureRace', 4.4)" role="button">Beer Adventure Race</a> </li>
+							<li ng-class="{active: selected==4.5}"><a ng-click="route('/veranstaltungen/maibaum', 4.5)" role="button">Maibaum</a> </li>
+							<li ng-class="{active: selected==4.6}"><a ng-click="route('/veranstaltungen/pfingsten', 4.6)" role="button">Pfingsten</a> </li>
+							
+							<li ng-class="{active: selected==4.7}"><a ng-click="route('/events', 4.7)" role="button">Events</a> </li>						
+						</ul>
+					</li>
+					
+					<li class="dropdown" ng-class="{active: selected > 4.9 && selected < 6}">
+						<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							Mitglieder 
+							<b class="caret"> </b>
+						</a>
+						<ul class="dropdown-menu">
+							<li ng-class="{active: selected==5.1}"><a ng-click="route('/mitglieder/vorstand', 5.1)" role="button">Vorstand</a> </li>
+							<li ng-class="{active: selected==5.2}"><a ng-click="route('/mitglieder/eintritt', 5.2)" role="button">Mitglied werden</a> </li>
+						</ul>
+					</li>
+					
+					<li ng-class="{active: selected==6}"><a ng-click="route('/gaestebuch', 6)" role="button">Gästebuch</a></li>
+					<li ng-class="{active: selected==7}"><a ng-click="route('/gallerie', 7)" role="button">Gallerie</a></li>
+					<li ng-class="{active: selected==8}"><a ng-click="route('login', 8)" role="button">Login</a></li>
+				</ul>
+				
+				
+				<ul class="nav navbar-nav navbar-right">	
+					<li>
+		            	<a class="btn btn-info btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2" ng-bind="lblLogin" ng-click="updateLabel()"></a>
+		            </li>
+				</ul>
+				<div class="collapse nav navbar-nav nav-collapse" id="nav-collapse2">
+		            <form class="navbar-form navbar-right form-inline" role="form" ng-submit="login(inputLogin)">
+		            	<div class="form-group">
+							<label class="sr-only" for="User">User</label>
+							<input type="username" class="form-control" id="username" placeholder="Benutzer" ng-model="inputLogin.username" autofocus required="true"/>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="Password">Passwort</label>
+							<input type="password" class="form-control" id="password" ng-model="inputLogin.password" placeholder="Passwort" required="true"/>
+						</div>
+						<button type="submit" class="btn btn-success">Anmelden</button>
+					</form>
+				</div>
+			</div><!--/.nav-collapse -->
+		</nav>
+		
+		</br>
+		
+		<!-- angular routing view -->
+		<div ng-view></div>
+		
+		</br>
+		
+	</div>
+</body>
+<footer>
+	<div class="container">
+	<!--
+    <div class="text-left">
+        <div>
+        Follow us !
+        </div>
+        <a href="https://www.facebook.com/pages/Junge-Gesellschaft-Barwedel/110315952382517?fref=ts&locale=de_DE" target="_blank"><img src="../bilder/Standard/facebook.ico" width="95px" height="90px"></a>
+    </div>
+
+    <a class="text-center">
+        {{footer}}
+    </a>
+
+    <div class="text-right">
+        <a href="../content/partner.php">Partner</a>
+        <a href="../content/formular.php">Kontakt</a>
+        <a href="../content/impressum.php">Impressum</a> 
+    </div> -->
+    
+	    <div class="navbar navbar-dark bg-success navbar-fixed-bottom">
+		    <ul class="nav nav-pills">
+		    	<li><a href="https://www.facebook.com/pages/Junge-Gesellschaft-Barwedel/110315952382517?fref=ts&locale=de_DE" target="_blank"><img src="resources/img/default/facebook.ico" width="30px" height="30px"></a></li>
+		    	<li role="presentation" ng-class="{active: selected==7}"><a ng-click="route('/contact', 7)">Kontakt</a></li>
+				<p class="text-right" ng-bind="footer"></p>
+		    </ul>
+	    </div>
+    </div>
+    
+    <!--
+    <div class="navbar-text pull=left">
+		<p ng-bind="footer"></p>
+	</div>
+	-->
+    
+</footer>
+</html>

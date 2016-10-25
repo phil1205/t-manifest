@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <!-- Header -->
+        <?php
+        $title="Mitglied";
+        $header="Mitglied werden";
+        $wrapper="wrapper";
+        include 'header.php';
+        ?>
+
+    </head>
+
+    <body>
+        <!-- Aufbau der Seite -->
+        <?php
+        include 'aufbau.php';
+        ?>
+
+        <div id="mit1">
+            Ihr wollt Mitglied im legendären Club der Jungen Gesellschaft Barwedel werden? </br>Dann einfach die untenstehende PDF-Datei runterladen, ausfüllen und per Anhang eingescannt an die untenstehende Email Adresse senden, oder direkt an die Postadresse schicken. </br>
+            Wir freuen uns auf jedes neue Mitglied! </br> </br>
+            Hier findest du den Aufnahmeantrag:</br>
+                
+            <a href="pdf_download.php?file=Mitglied_werden"> Mitglied werden </a> </br> </br> </br>
+
+            Kontaktdaten
+        
+            <div id="kontaktdaten">
+                Post: </br>
+                Doreen Suckow</br>
+                Hauptstraße 35 </br>
+                38476 Barwedel </br></br>
+
+                oder</br></br>
+
+                <a href="mailto:jg-barwedel@gmx.de"> per Email </a>
+            </div>
+
+        </div>
+
+        <?php include 'ende.php'; ?>
+            
+    </body>
+</html>

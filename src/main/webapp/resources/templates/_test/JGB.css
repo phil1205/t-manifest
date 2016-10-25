@@ -1,0 +1,939 @@
+/*  Allgemeine Stile Sheets gültig für jede Seite */
+body {
+    width: 100%;
+    background-image: url(../bilder/Standard/blau.jpg);
+    background-position:center;
+    background-size:cover;
+    background-attachment: fixed;
+    font-style: italic;
+    font-family: fantasy;
+    font-weight: bold;
+}
+#header{
+    height: 90px;
+    color: white;
+}
+#logo{
+    width: 120px;
+    margin-left: 1%;
+    margin-top: 1%;
+    float: left;
+}
+#sau{
+    width: 120px;
+    margin-right: 2%;
+    margin-top: 1.7%;
+    float: right;
+}
+.header-name{
+    font-size: 70px;
+    line-height: 0px;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    padding-top: -1%;
+    
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+}
+.header-jgb{
+    font-size: 70px;
+    line-height: 0px;
+    color: white;
+    text-align: center;
+    width: 1000px;
+    padding-top: -1%;
+    
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+}
+.header-jgb, .header-name ::selection {
+    background: transparent;
+    color: inherit;
+}
+.header-jgb, .header-name ::-moz-selection {
+    background: transparent;
+    color: inherit;
+}
+.header-jgb, .header-name {
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+#sprechblase{
+    content: ' ';  
+    border: 20px solid;  
+    border-color: transparent transparent white transparent; 
+    margin-left: auto;
+    margin-right: auto;
+    width: 1%;
+    height: 1%;
+}
+#wrapper {
+    width: 101%;
+    height: 100%;
+    background: white;
+    text-align: center;
+    padding-top: 10px;
+    margin-left: -1%;
+    margin-top: auto;
+}
+#background{
+    background-image: url(../bilder/Standard/background.png);
+    background-position:center;
+    background-size:cover;
+    background-attachment: fixed;
+}
+#footer {
+    width: 99%;
+    height: 150px;
+    /*background: rgba(230, 184, 145, 1);*/
+    margin-top:0px;
+    margin-left: -1%;
+    margin-bottom: -1%;
+    padding-left: 2%;
+    font-size: 20px;
+    padding-top: 1%;
+    padding-bottom: -5%;
+    color: #999999;
+}
+#faceook{
+    width: 37%;
+    float: left;
+}
+#copy{
+    float: left;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+}
+
+/*Ende Allgemeine Stile Sheets */
+/*Index CSS-Stile */
+#wrapperindex {
+    width: 101%;
+    background: white;
+    text-align: center;
+    padding-top: 10px;
+    margin-left: -1%;
+    margin-top: auto;
+}
+#index{
+    margin-top: 3%;
+    width: 832px;
+    height: 290px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 2%;
+}
+#index1{
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 755px;
+    font-size: 20px;
+}
+#barwedelimg{
+    width: 830.3px;
+    height: 288.3px;
+    border-radius: 30px;
+    border: 1px solid black;
+}
+#index a:link{
+        color: black;
+        text-decoration: none;
+    }
+     #index a:visited{
+        color:black ;
+        text-decoration: none;
+    }
+    #index a:hover{
+        color: #999999;
+        text-decoration: none;
+    }
+    #index a:active{
+        color: black;
+        text-decoration: none;
+    }
+
+.view-sixth{
+   width: 834px;
+   height: 292px;
+   float: left;
+    overflow: hidden;
+   position: absolute;
+   text-align: center;
+   cursor: default;
+   border-radius: 30px;
+}
+.view-sixth .mask,.view .content {
+   width: 832px;
+   height: 220px;
+   border-radius: 30px;
+   position: absolute;
+   overflow: hidden;
+    top: 0;
+    left: 0;
+}
+.view-sixth img {
+ transition: all 0.4s ease-in-out 0.5s;
+}
+.view-sixth .mask{
+ background-color: rgba(146,96,91,0.5);
+ opacity:0;
+ transition: all 0.3s ease-in 0.1s;
+}
+.mask{
+    text-decoration: underline;
+    font-size: 40px;
+    padding-top: 70px;
+}
+.view-sixth a.info {
+ opacity:0;
+ transform: translateY(100px);
+ transition: all 0.3s ease-in-out 0.1s;
+}
+.view-sixth:hover .mask {
+ opacity:1;
+ transition-delay: 0s;
+}
+.view-sixth:hover img {
+ transition-delay: 0s;
+}
+.view-sixth:hover a.info {
+ opacity:1;
+ transform: translateY(0px);
+ transition-delay: 0.3s;
+}
+
+.bouncing{
+    background-image: url(../bilder/Standard/rot.jpg);
+    width: 96%;
+    margin-left: 2%;
+    font-size: 40px;
+    line-height: 0px;
+    color: #001AFB;
+    border: 2px solid black;
+    overflow: hidden;
+    margin-top: 3%;
+}
+.bouncing p{
+    float: right;
+    line-height: 0px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    
+    /* Starting position */
+    -moz-
+    transform:translateX(50%);
+    -webkit-
+    transform:translateX(50%); 
+    transform:translateX(50%);
+
+    /* Apply animation to this element */   
+    -moz-
+    animation: bouncing-text 10s linear infinite alternate;
+    -webkit-
+    animation: bouncing-text 10s linear infinite alternate;
+    animation: bouncing-text 10s linear infinite alternate;
+}
+
+.bouncing ::selection {
+    background: transparent;
+    color: inherit;
+}
+.bouncing ::-moz-selection {
+    background: transparent;
+    color: inherit;
+}
+.bouncing {
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+/* Move it (define the animation) */
+@-moz-keyframes bouncing-text {
+    0%{ 
+        -moz-transform: translateX(50%);
+    }
+    100%{
+        -moz-transform: translateX(-50%);
+    }
+}
+@-webkit-keyframes bouncing-text {
+    0%{
+        -webkit-transform: translateX(50%);
+    }
+    100%{
+        -webkit-transform: translateX(-50%);
+    }
+}
+@keyframes bouncing-text {
+    0%   { 
+        -moz-
+        transform: translateX(50%); /* Browser bug fix */
+        -webkit-
+        transform: translateX(50%); /* Browser bug fix */
+        transform: translateX(50%);
+ }
+    100% { 
+        -moz-
+        transform: translateX(-50%); /* Browser bug fix */
+        -webkit-
+        transform: translateX(-50%); /* Browser bug fix */
+        transform: translateX(-50%); 
+    }
+}
+
+/*Ende Index CSS-Stile*/
+/* Gästebuch Stile + neu.php */
+#wrapper1 {
+    width: 101%;
+    background: white;
+    text-align: center;
+    padding-top: 10px;
+    margin-left: -1%;
+    margin-top: auto;
+}
+
+/* Gästebuch und Formular */
+#gast{
+    padding-top: 3%;
+    padding-left: 3%;
+    padding-bottom: 3%;
+    padding-right: 3%;
+    margin-top: 4%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 40%;
+    font-size: 20px;
+    color: black;
+    background: rgba(190,190,190,0.5);
+    border-radius: 10px;
+}
+#eintraege{
+    margin-top: 5%;
+    font-size: 25px;
+    text-decoration: underline;
+}
+#gaestebuch{
+    padding-top: 1.5%;
+    padding-left: 3%;
+    padding-bottom: 1.5%;
+    padding-right: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    height: 40%;
+    font-size: 20px;
+    color: black;
+    background: rgba(130,160,200,0.5);
+    border-radius: 10px;
+}
+#eintragName{
+    font-size: 16px;
+    text-decoration: overline;
+    float: left;
+    line-height: 0;
+}
+#eintragDatum{
+    font-size: 16px;
+    text-decoration: inherit;
+    float: right;
+    line-height: 0;
+}
+#eintragInhalt{
+    font-size: 15px;
+    text-align: left;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 5%;
+}
+#emaileingeben{
+    font-size: 12px;
+}
+#fehlerdb{
+    padding-top: 3%;
+    padding-left: 3%;
+    padding-bottom: 3%;
+    padding-right: 3%;
+    margin-top: 4%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 380px;
+    height: auto;
+    font-size: 20px;
+    background: rgba(190,0,0,0.5);
+    border-radius: 10px;
+}
+ #fehler{
+    padding-top: 3%;
+    padding-left: 3%;
+    padding-bottom: 3%;
+    padding-right: 3%;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 380px;
+    height: auto;
+    font-size: 20px;
+    color: black;
+    background: rgba(190,190,190,0.5);
+    border-radius: 10px;
+}
+#fehler a:link{
+    color: #999999;
+    text-decoration: none;
+}
+ #fehler a:visited{
+    color:#999999 ;
+    text-decoration: none;
+}
+#fehler a:hover{
+    color: black;
+    text-decoration: none;
+}
+#fehler a:active{
+    color: #999999;
+    text-decoration: none;
+}
+
+/*Ende Gästebuch Stile */
+/* Mitglied werden */
+#mit1{
+    margin-top: 3%;
+    width: 35%;
+    height: 20%;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#mit1 a:link{
+    color: #999999;
+    text-decoration: none;
+}
+ #mit1 a:visited{
+    color:#999999 ;
+    text-decoration: none;
+}
+#mit1 a:hover{
+    color: black;
+    text-decoration: none;
+}
+#mit1 a:active{
+    color: #999999;
+    text-decoration: none;
+}
+#kontaktdaten{
+    border-radius: 20px;
+    border: 1px solid black;
+    width: auto;
+    margin-bottom: 3%;
+}
+
+/* Mitlgied werden ende */
+/* Stile Formular */
+#textarea{
+    resize: none;
+    font-size: 14px;
+}
+#input-size{
+    font-size: 4em;
+}
+#input{
+    font-size: 14px;
+}
+        #Formu{
+    float: right;
+    width: 100px;
+    margin-right: 2%;
+}
+#Formu a:link{
+    color: #999999;
+    text-decoration: none;
+}
+ #Formu a:visited{
+    color:#999999 ;
+    text-decoration: none;
+}
+#Formu a:hover{
+    color: black;
+    text-decoration: none;
+}
+#Formu a:active{
+    color: #999999;
+    text-decoration: none;
+}
+/* Ende Stile Formular */
+/*DropeDown Start */
+nav {
+    width: 906px;
+    margin-left: auto;
+    margin-right: auto;
+}
+nav ul {
+    padding: 0px;
+    margin: 0px;
+    
+    box-shadow: 2px 2px 2px #dfdfdf;
+    -moz-box-shadow: 2px 2px 2px #dfdfdf;
+    -webkit-box-shadow: 2px 2px 2px #dfdfdf;
+
+position:relativ;
+    z-index: 99;
+}
+nav ul:after {
+    clear: both;
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+}
+    nav ul,nav ul li{
+    background-color: white;
+}
+    nav ul li {
+    list-style: none;
+    float:left;
+    border-right: 1px solid #dfdfdf;
+}
+
+nav ul li a {
+    text-decoration: none;
+    display: block;
+    color: #333;
+    padding: 14px 34px 14px 34px;
+    -webkit-transition: background 0.3s ease-out 0s;
+    -moz-transition: background 0.3s ease-out 0s;
+    -o-transition: background 0.3s ease-out 0s;
+    transition: background 0.3s ease-out 0s;
+}
+nav ul li:hover > ul {
+    visibility: visible;
+    margin-left: -2%;
+}
+nav ul li.cat1:hover a, nav ul li.cat1:hover > ul li a  {
+    background-color: #E6DD00;
+}
+li.cat1{
+    width: 150px;
+}
+nav ul li.cat2:hover a, nav ul li.cat2:hover > ul li a  {
+    background-color: #8CB302;
+}
+li.cat2{
+    width: 150px;
+}
+nav ul li.cat3:hover a, nav ul li.cat3:hover > ul li a  {
+    background-color: #008C74;
+}
+li.cat3{
+    width: 150px;
+}
+nav ul li.cat4:hover a, nav ul li.cat4:hover > ul li a {
+    background-color: #3526C3;
+}
+li.cat4{
+    width: 150px;
+}
+nav ul li.cat5:hover a, nav ul li.cat5:hover > ul li a {
+    background-color: #004C66;
+}
+li.cat5{
+    width: 150px;
+}
+nav ul li.cat6:hover a, nav ul li.cat6:hover > ul li a {
+    background-color: #332B40;
+}
+li.cat6{
+    width: 150px;
+}
+nav ul li:hover > a {
+    color: #FAFAFA;
+}
+nav ul li ul li a {
+    color: #FAFAFA;
+}
+nav ul li ul li a:hover{
+    color: #333;
+    background-color: #FAFAFA !important;
+}
+nav ul li ul{
+    display: inline;
+    visibility: hidden;
+    position: absolute;
+    padding:0px;
+}
+nav ul li ul li{
+    float: none;
+}
+nav ul li ul li a:hover{
+    color: #333;
+}
+/*Ende Drope Down */
+
+#s21{
+        padding-top: 3%;
+        padding-left: 3%;
+        padding-bottom: 1%;
+        margin-top: 10%;
+        mar#!/usr/bin/env gin-left: auto;
+        margin-right: auto;
+        width: 370px;
+        height: 40%;
+        font-size: 20px;
+        color: black;
+        background: rgba(190,190,190,0.5);
+        border-radius: 10px;
+    }   
+    tr{
+        margin-left: auto;
+        margin-right: auto;
+    }
+/*Atuelles CSS-Stile */
+#aktcont{
+        margin-top: 4%;
+        width: 80%;
+        height: 45%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 20px;
+    }
+#aktinfo{
+        width: 55%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+#aktdate{
+        font-size: 18px;
+        text-align: left;
+        text-decoration: underline;
+    }
+#akttext{
+        margin-top: -2%;
+        font-size: 16px;
+        text-align: left;
+    }
+#aktabschluss{
+        margin-top: 4%;
+        font-size: 22px;
+        font-weight: bolder;
+    }
+#aktstand{
+        margin-top: 3%;
+        font-size: 12px;
+    }
+/* Ende Aktuelles CSS-Stile */
+/*Anfang OpenAir CSS*/
+#slideopen{
+        margin-top: 3%;
+        width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 2%;
+    }
+#opencont{
+        margin-top: 4%;
+        width: 80%;
+        height: 45%;
+        border-radius: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 20px;
+    }
+#wrapperopen {
+        width: 101%;
+        height: 130%;
+        background: white;
+        text-align: center;
+        padding-top: 10px;
+        margin-left: -1%;
+        margin-top: auto;
+    }
+/*Ende OpenAir CSS */
+/*Beginn Partner CSS*/
+#anderecont{
+        margin-top: 4%;
+        width: 50%;
+        height: 10%;
+        border-radius: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 20px;
+        margin-bottom: 4%;
+    }
+    #partborder{
+        width: 99%;
+        display: inline-block;
+        /*background: rgba(230, 184, 145, 1);*/
+        margin-top:2%;
+        margin-bottom: -1%;
+        font-size: 20px;
+        color: #999999;
+    }
+    #partborder img{
+        width: 80px;
+        height: 80px;
+    }
+    #ersteReihe{
+        width: 20%;
+        float: left;
+        margin-left: 2%;
+    }
+    #zweiteReihe{
+        width: 20%;
+        float: left;
+        margin-left: 20%;
+    }
+    #dritteReihe{
+        width: 20%;
+        margin-left: 5%;
+        float: right;
+        margin-right: 2%;
+    }
+#wrapperpart {
+        width: 101%;
+        height: 100%;
+        background: white;
+        text-align: center;
+        padding-top: 10px;
+        margin-left: -1%;
+        margin-top: auto;
+    }
+/*Ende Partner CSS*/
+/*Beginn grund CSS*/
+#grundcont{
+        margin-top: 4%;
+        width: 80%;
+        border-radius: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 20px;
+    }
+    #wrappergrund {
+        width: 101%;
+        height: 100%;
+        background: white;
+        text-align: center;
+        padding-top: 10px;
+        margin-left: -1%;
+        margin-top: auto;
+    }
+/*Ende grund CSS*/
+/*Anfang Beer CSS*/
+#beercont{
+        margin-top: 4%;
+        width: 80%;
+        height: 45%;
+        font-size: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #beerfarb{
+        color: red;
+        font-size: 22px;
+    }
+     #wrapperbeer {
+        width: 101%;
+        height: 100%;
+        background: white;
+        text-align: center;
+        padding-top: 10px;
+        margin-left: -1%;
+        margin-top: auto;
+    }
+/*Ende Beer CSS*/
+/*Anfagn Fasching CSS*/
+#faschingcont{
+        margin-top: 4%;
+        width: 80%;
+        height: 45%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 20px;
+    }
+    #wrapperfasching {
+        width: 101%;
+        height: 100%;
+        background: white;
+        text-align: center;
+        padding-top: 10px;
+        margin-left: -1%;
+        margin-top: auto;
+    }
+/*Ende Fasching CSS*/
+/*Anfang Mai Pfingsten CSS */
+#wrappermapf {
+        width: 101%;
+        height: 100%;
+        background: white;
+        text-align: center;
+        padding-top: 10px;
+        margin-left: -1%;
+        margin-top: auto;
+    }
+    #mapfcont{
+        margin-top: 4%;
+        width: 80%;
+        height: 45%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 20px;
+    }
+    #pfingstencont{
+        margin-top: 4%;
+        width: 80%;
+        height: 45%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 20px;
+    }
+    #slideopen1{
+        margin-top: 6%;
+        width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+/*Ende Mai Pfingsten CSS */
+/*Anfang Geschichte CSS */
+#wrappergesch {
+        width: 101%;
+        height: 100%;
+        background: white;
+        text-align: center;
+        padding-top: 10px;
+        margin-left: -1%;
+        margin-top: auto;
+    }
+#geschcont{
+        margin-top: 4%;
+        width: 80%;
+        height: 45%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 20px;
+    }
+
+#ehmv{
+    margin-top: 5%;
+    font-size: 25px;
+    text-decoration: underline;
+}
+#ehmvorstand{
+        width: 55%;
+        display: inline-block;
+        font-size: 16px;
+        text-align: center;
+        padding-bottom: 1%;
+    }
+#ehmv-links{
+        width: 20%;
+        float: left;
+        display: inline-block;
+        margin-left: 2%;
+        text-align: left;
+    }
+#ehmv-rechts{
+        width: 55%;
+        float: right;
+        display: inline-block;
+        margin-left: 20%;
+        text-align: right;
+}
+/*Ende Geschihte CSS*/
+/*Anfang 30 Jahr CSS*/
+#wrapper30 {
+        width: 101%;
+        height: 100%;
+        background: white;
+        text-align: center;
+        padding-top: 10px;
+        margin-left: -1%;
+        margin-top: auto;
+    }
+#cont40{
+        margin-top: 4%;
+        width: 80%;
+        height: 45%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 20px;
+    }
+/*Ende 30 Jahr CSS*/
+/*Anfang Impressum */
+#impcont{
+    margin-top: 4%;
+    width: 50%;
+    height: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+}
+#impcont2{
+    margin-top: 4%;
+    width: 80%;
+    height: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 13px;
+}
+#wrapperimp{
+    width: 101%;
+    height: 100%;
+    background: white;
+    text-align: center;
+    padding-top: 10px;
+    margin-left: -1%;
+    margin-top: auto;
+}
+/*Ende Impressum*/
+/*Anfang Angehörige*/
+#angcont{
+    margin-top: 4%;
+    width: 50%;
+    height: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+}
+#vorstandimg{
+    width: 60%;
+    border-radius: 20px;
+    border: 1px solid black;
+    border-color: 1px solid black;
+}
+#vorstand{
+    margin-top: 1%;
+    padding-bottom: 1%;
+    font-size: 23px;
+    text-align: center;
+}
+/*Ende Anfang Angehörige*/
+/*Anfang Mobil-Website*/
+#background-mw{
+    width: 100%;
+    height: 100%;
+    background-image: url(../bilder/Standard/blau.jpg);
+    background-position:center;
+    background-size:cover;
+    background-attachment: fixed;
+    font-style: italic;
+    font-family: fantasy;
+    font-weight: bold;
+}
+#text-mw{
+    width: 85%;
+    font-size: 34px;
+    text-align: center;
+}
+/*Ende Mobil-Website*/
