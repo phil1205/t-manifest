@@ -24,10 +24,8 @@ import main.security.user.model.User;
 public class Role implements Serializable{
 	
 public Role(String strType) {
-	
 		Assert.hasText(strType);
 		
-
 		this.strType = strType;
 	  }
 	
@@ -42,10 +40,6 @@ public Role(String strType) {
 	
 	@Column(name="type")
 	private String strType;
-	
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	@JoinColumn(name = "role_id")
-	private List<User> users = new ArrayList<User>();
 	
 	
 	//getter & setter
@@ -65,21 +59,12 @@ public Role(String strType) {
 		this.strType = strType;
 	}
 	
-	public List<User> getUsers(){
-		return this.users;
-	}
-	
-	public void setUsers(User user){
-		this.users.add(user);
-	}
-	
  	
  	@Override
 	public String toString() {
 		return "Role{" +
 				"LongRole_id=" + LongRole_id +
 				", strType=" + strType +
-				", users=" + users +
 				'}';
 	}
 }

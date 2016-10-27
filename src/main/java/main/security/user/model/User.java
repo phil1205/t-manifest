@@ -4,12 +4,16 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import org.springframework.util.Assert;
@@ -20,14 +24,12 @@ import main.security.role.model.Role;
 @Entity
 public class User implements Serializable{
 	
-	public User(String strUsername, String strPassword, Long role_id) {
-		
+	public User(String strUsername, String strPassword) {
 		Assert.hasText(strUsername);
 	    Assert.hasText(strPassword);
 	
 	    this.strUsername = strUsername;
 	    this.strPassword = strPassword;
-	    //this.setRole_id(role_id);
 	}
 	
 	protected User() {
@@ -45,9 +47,8 @@ public class User implements Serializable{
 	@Column(name="EMail")
 	private String strPassword;
 	
-	
-	@ManyToOne(targetEntity = Role.class)
-	@JoinColumn(name = "role_id", referencedColumnName = "role_id")
+	@ManyToMany(cascade = {CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
+	@JoinTable(name="role_user", joinColumns=@JoinColumn(name="user_id"), inverseJoinColumns=@JoinColumn(name="role_id"))
 	private List<Role> roles = new ArrayList<Role>();
 	
 	

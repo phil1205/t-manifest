@@ -9,55 +9,68 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
 
 import main.security.*;
+import main.security.handler.RestAccessDeniedHandler;
+import main.security.handler.RestAuthenticationSuccessHandler;
+import main.security.handler.RestUnauthorizedEntryPoint;
+import main.security.service.UserDetailsServiceImpl;
 
 @Configuration
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
+@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
   
 	@Autowired
-	private UserDetailsService userDetailsService;
+	private RestUnauthorizedEntryPoint restAuthenticationEntryPoint;
+	@Autowired
+	private RestAuthenticationSuccessHandler restAuthenticationSuccessHandler;
+	@Autowired
+	private RestAccessDeniedHandler restAccessDeniedHandler;
 	
-	/*
+	
+    @Autowired
+	private UserDetailsServiceImpl userDetailsServiceImpl;
+	
 	@Autowired
 	public void configureAuthenticationManagerBuilder(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService);
-	}
-	*/
-	
-	@Autowired
-	public void configureAuthenticationManagerBuilder(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-        	.inMemoryAuthentication().withUser("username").password("password")
-            .roles("ADMIN");
+		auth.userDetailsService(userDetailsServiceImpl);
 	}
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 	    http
-	      .httpBasic()
-	    .and()
-	      .authorizeRequests()
-	        .antMatchers("/users", "/roles", "/logout", "/index.html", "/home.html", "/login.html", "/").permitAll()
+		    .headers().disable()
+		    .csrf().disable()
+		    /*.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+		    .and()*/
+		.authorizeRequests()
+	        .antMatchers("/users", "/authenticate", "/roles", "/logout", "/index.html", "/home.html", "/login.html", "/").permitAll()
 	        .antMatchers("/vorstand/**").hasRole("ADMIN")
 			.antMatchers("/**").hasRole("NORMALUSER")
 	        .anyRequest().authenticated()
 	    .and()
+		    .exceptionHandling()
+		    .authenticationEntryPoint(restAuthenticationEntryPoint)
+		    .accessDeniedHandler(restAccessDeniedHandler)
+	    .and()
 	    	.formLogin()
-	    		.loginPage("/login.html")
-	    		.usernameParameter("username")
+		    	.loginProcessingUrl("/authenticate")
+				.successHandler(restAuthenticationSuccessHandler)
+				.usernameParameter("username")
 				.passwordParameter("password")
 				.permitAll()
 	    .and()
-	        .logout()
-			.logoutSuccessUrl("/logout")
-			.permitAll()
-		.and()
-			.csrf()
-	        .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+		    .logout()
+			.invalidateHttpSession(false)
+	        .logoutSuccessUrl("/logout")
+	        .logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler())
+	        .deleteCookies("JSESSIONID")
+			.permitAll();
 	}
 	
 	@Override

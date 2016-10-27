@@ -25,7 +25,7 @@
 	<!-- momentJs -->
     <script type="text/javascript" src="resources/js/lib/moment/moment.min.js"></script>
     <script type="text/javascript" src="resources/js/lib/moment/locales/de.js"></script>
-
+    
     
     <!-- Latest compiled and minified JavaScript -->
     <script src="resources/js/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -34,6 +34,7 @@
     <script type="text/javascript" src="resources/js/lib/angular.min.js"></script>
     <script type="text/javascript" src="resources/js/lib/angular-route.js"></script>
     <script type="text/javascript" src="resources/js/lib/angular-resource.js"></script>
+    <script type="text/javascript" src="resources/js/lib/http-auth-interceptor.js"></script>
     
     <!--  Angular App -->
     <script type="text/javascript" src="resources/js/app/app.js"></script>
@@ -42,6 +43,10 @@
     <script type="text/javascript" src="resources/js/app/controller/oldExecutivesCtrl.js"></script>
     <script type="text/javascript" src="resources/js/app/controller/galleryCtrl.js"></script>
     <script type="text/javascript" src="resources/js/app/controller/guestbookCtrl.js"></script>
+    
+    <!-- Angular Service -->
+    <script type="text/javascript" src="resources/js/app/service/authSharedService.js"></script>
+    <script type="text/javascript" src="resources/js/app/service/session.js"></script>
 </head>
 <body>
 	</br>
@@ -115,24 +120,23 @@
 					
 					<li ng-class="{active: selected==6}"><a ng-click="route('/gaestebuch', 6)" role="button">Gästebuch</a></li>
 					<li ng-class="{active: selected==7}"><a ng-click="route('/gallerie', 7)" role="button">Gallerie</a></li>
-					<li ng-class="{active: selected==8}"><a ng-click="route('login', 8)" role="button">Login</a></li>
 				</ul>
 				
 				
 				<ul class="nav navbar-nav navbar-right">	
 					<li>
-		            	<a class="btn btn-info btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2" ng-bind="lblLogin" ng-click="updateLabel()"></a>
+		            	<a class="btn btn-outline btn-circle" ng-class="btncolor"  data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2" ng-bind="lblLogin" ng-click="updateLabel()"></a>
 		            </li>
 				</ul>
 				<div class="collapse nav navbar-nav nav-collapse" id="nav-collapse2">
-		            <form class="navbar-form navbar-right form-inline" role="form" ng-submit="login(inputLogin)">
+		            <form class="navbar-form navbar-right form-inline" role="form" ng-submit="login()">
 		            	<div class="form-group">
 							<label class="sr-only" for="User">User</label>
-							<input type="username" class="form-control" id="username" placeholder="Benutzer" ng-model="inputLogin.username" autofocus required="true"/>
+							<input type="text" class="form-control" id="username" name="username" placeholder="Benutzer" ng-model="credentials.username" autofocus required="true"/>
 						</div>
 						<div class="form-group">
 							<label class="sr-only" for="Password">Passwort</label>
-							<input type="password" class="form-control" id="password" ng-model="inputLogin.password" placeholder="Passwort" required="true"/>
+							<input type="password" class="form-control" id="password" name="password" ng-model="credentials.password" placeholder="Passwort" required="true"/>
 						</div>
 						<button type="submit" class="btn btn-success">Anmelden</button>
 					</form>

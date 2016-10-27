@@ -33,7 +33,7 @@ public class Application {
 	    	rr.save(role1);
 	    	rr.save(role2);
 	    	
-	    	User user1 = new User("phil", "phil", 0L);
+	    	User user1 = new User("phil", "phil");
 	    	ur.save(user1);
 	    };
 	  }

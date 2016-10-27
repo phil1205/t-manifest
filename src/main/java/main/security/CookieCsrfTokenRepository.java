@@ -1,3 +1,19 @@
+/*
+ * Copyright 2012-2016 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package main.security;
 
 import java.lang.reflect.Method;
@@ -16,7 +32,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.util.WebUtils;
 
 /**
- * A {@link CsrfTokenRepository} that persist the CSRF token in a cookie named
+ * A {@link CsrfTokenRepository} that persists the CSRF token in a cookie named
  * "XSRF-TOKEN" and reads from the header "X-XSRF-TOKEN" following the conventions of
  * AngularJS. When using with AngularJS be sure to use {@link #withHttpOnlyFalse()}.
  *
@@ -150,7 +166,7 @@ public final class CookieCsrfTokenRepository implements CsrfTokenRepository {
 	 * Factory method to conveniently create an instance that has
 	 * {@link #setCookieHttpOnly(boolean)} set to false.
 	 *
-	 * @return and instance of CookieCsrfTokenRepository with
+	 * @return an instance of CookieCsrfTokenRepository with
 	 * {@link #setCookieHttpOnly(boolean)} set to false
 	 */
 	public static CookieCsrfTokenRepository withHttpOnlyFalse() {
@@ -164,7 +180,7 @@ public final class CookieCsrfTokenRepository implements CsrfTokenRepository {
 	}
 
 	/**
-	 * Set the path that the Cookie will be created with. This will will override the default functionality which uses the
+	 * Set the path that the Cookie will be created with. This will override the default functionality which uses the
 	 * request context as the path.
 	 *
 	 * @param path the path to use
