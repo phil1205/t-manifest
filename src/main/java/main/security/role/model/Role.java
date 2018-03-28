@@ -23,11 +23,11 @@ import main.security.user.model.User;
 @Entity
 public class Role implements Serializable{
 	
-public Role(String strType) {
+	public Role(String strType) {
 		Assert.hasText(strType);
 		
 		this.strType = strType;
-	  }
+	}
 	
 	protected Role() {
 		

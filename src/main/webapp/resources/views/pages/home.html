@@ -1,0 +1,111 @@
+<script src="http://www.jqueryscript.net/demo/Responsive-jQuery-News-Ticker-Plugin-with-Bootstrap-3-Bootstrap-News-Box/scripts/jquery.bootstrap.newsbox.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // ### for map
+    	$('#map').addClass('scrolloff');                // set the mouse events to none when doc is ready
+        
+        $('#overlay').on("mouseup",function(){          // lock it when mouse up
+            $('#map').addClass('scrolloff'); 
+            //somehow the mouseup event doesn't get call...
+        });
+        $('#overlay').on("mousedown",function(){        // when mouse down, set the mouse events free
+            $('#map').removeClass('scrolloff');
+        });
+        $("#map").mouseleave(function () {              // becuase the mouse up doesn't work... 
+            $('#map').addClass('scrolloff');            // set the pointer events to none when mouse leaves the map area
+                                                        // or you can do it on some other event
+        });
+        
+        // ### for news-panel
+        $(".demo2").bootstrapNews({
+            newsPerPage: 3,
+            autoplay: true,
+			pauseOnHover: true,
+			navigation: false,
+            direction: 'down',
+            newsTickerInterval: 3500,
+            onToDo: function () {
+                //console.log(this);
+            }
+        });
+        
+    });
+</script>
+
+<div ng-show="wasLoaded">
+	<div class="row content-infos">
+	
+		<!-- welcome -->
+		<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+			</br>
+			<div style="display: block">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+					<img class="imgLogo" src="resources/img/home/logo.png" imageonload="showHomeContent(0)">
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+					<img class="imgPig" src="resources/img/home/jg-pig.png" imageonload="showHomeContent(1)">
+				</div>
+			</div>
+			
+			</br></br></br></br></br></br>
+			
+			<div class="jumbotron col-sm-offset-1 col-sm-10 col-xs-offset-1 col-xs-10 text-center">
+				<h3 class="text-primary">Hallo und herzlichen Willkommen auf der offiziellen Website der <strong>Jungen Gesellschaft</strong> aus <strong>Barwedel</strong></h3></br>
+				<p>
+				Wir sind ein eingetragener Verein bestehend aus jungen Leuten unseres beschaulichen Dorfes und bestehen seit über 50 Jahren.
+			    Unser Ziel ist es, eine junge Gruppe in Barwedel zu bilden, die gemeinsam einiges auf die Beine stellen kann und zusammen Freude am Dorfleben hat</br></br>
+			    Du findest auf unserer Website reichlich Informationen über uns, unsere Geschichte und unseren Veranstaltungen</br>
+			    
+			    Viel Spaß beim Erkundigen! Lass doch vielleicht einen Eintrag in unserem Gästebuch zurück, wir würden uns freuen <i class="em em-blush"></i>
+			    </p>
+			</div>
+		</div>
+		
+		<!-- news-panel -->
+		<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+			<div class="panel panel-success">
+				<div class="panel-heading"> <span class="glyphicon glyphicon-list-alt"></span><b> Neues</b></div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-xs-12">
+							<ul class="demo2" style="overflow-y: hidden; margin: 0 auto !important; padding: 0 auto !important;">
+								<li style="" class="news-item">
+									Mitglied werden? Kein Problem! Informiere dich 
+									<a role="button" ng-click="goTo('/ueberUns/eintreten')">hier</a>, wie..
+								</li>
+								<li style="" class="news-item">
+									Neuer Vorstand gew&auml;hlt. <a role="button" ng-click="goTo('/ueberUns/wir')">Hier</a> findest du ihn
+								</li>
+								<li style="" class="news-item">
+									<b>Reserviere dir den 08.09.18 für unsere jährliche Open-Air-Fete!</b></br>
+								</li>
+								<li style="" class="news-item">
+									Alle weiteren 
+									<a role="button" ng-click="goTo('/aktuell')">Termine</a> für 2018 im Überblick
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="panel-footer panel-info"></div>
+			</div>
+		</div>
+		
+		<!-- map -->
+		<div id="overlay" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+		    <iframe id="map" src="https://maps.google.com/maps?q=Barwedel Am Funkberg 6, &t=&z=14&ie=UTF8&iwloc=&output=embed" class="map" frameborder="0" ></iframe>
+		</div>
+	</div>
+	
+	</br>
+	<img class="img-responsive container homeImg" ng-show="barwedelViewWasLoaded" style="width:96%;" src="resources/img/home/barwedel.jpg" imageonload="showBarwedelView()"/>
+	<div class="text-center" ng-hide="barwedelViewWasLoaded">
+		<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+		<span class="sr-only">Bild wird geladen...</span>
+	</div>
+</div>
+
+<div class="text-center" ng-hide="wasLoaded">
+	<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+	<span class="sr-only">Inhalt wird geladen...</span>
+</div>

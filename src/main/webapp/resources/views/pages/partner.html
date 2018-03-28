@@ -1,0 +1,12 @@
+<div class="content-infos">
+	<h1 class="text-primary text-center">Unsere Partner</h1></br>
+	
+	<div class="row" style="position: relative">
+		<a ng-repeat="rs in data" class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center" href="rs.href" target="_blank" ng-show="rs.show" style="height: 200px">
+			<div style="position: absolute; bottom: 0;">
+				<img ng-src="resources/img/partnerLogos/{{rs.picture}}" class="partnerImg" imageonload="setShowTrue($index)">
+				<p>{{rs.title}}</p>
+			</div>
+		</a>
+	</div>
+</div>

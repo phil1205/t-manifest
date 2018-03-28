@@ -1,0 +1,16 @@
+<div class="content-infos">
+	<h1 class="text-primary text-center">Unsere Veranstaltungen für 2018</h1></br>
+	
+	<div class="panel" ng-repeat="rs in data" ng-class="isDone(rs.endDate) == true ? 'panel-success' : 'panel-info'">
+		<div class="panel-heading">
+			<h3 class="panel-title"><i class="em" ng-class="isDone(rs.endDate) == true ? 'em-heavy_check_mark' : 'em-soon'"></i> {{rs.title}}</h3>
+		</div>
+		<div class="panel-body" ng-bind-html="rs.content">
+	    </div>
+	</div>
+	
+	<h3 class="text-success">
+		Wir freuen uns auf die tollen Veranstaltungen und hoffen, dass Ihr dabei seid!
+	</h3>
+</div>
+

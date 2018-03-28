@@ -1,0 +1,48 @@
+<div ng-controller="GuestbookCtrl" ng-init="getEntries()" class="content-infos">
+	<div class="alert collapse alert-danger" id="alertGetError">>
+  		<a href class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  		<strong>Achtung! </strong><span>Es ist ein Verbindungsfehler zur Datenbank aufgetreten. Versuche es später nochmal</span>
+	</div>
+	<div class="alert collapse alert-warning" id="alertGetNoEntries">>
+  		<a href class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  		<strong>Meldung! </strong><span>Es wurde noch kein Eintrag erstellt</span>
+	</div>
+	
+	<div class="alert collapse alert-danger" id="alertSubmitError">>
+  		<a href class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  		<strong>Achtung! </strong><span>Der Eintrag wurde aufgrund eines Fehlers nicht &uuml;bermittelt</span>
+	</div>
+	<div class="alert collapse alert-success" id="alertSubmitSuccess">>
+  		<a href class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  		<strong>Super! </strong><span>Der Eintrag wurde erfolgreich &uuml;bermittelt. Nachdem er freigeschaltet wurde, ist er für alle sichtbar</span>
+	</div>
+	
+	<div class="row">
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+			<form name="guestbookForm" ng-submit="setEntry(entry)">
+				<h4>Name</h4>
+				<input type="text" ng-model='entry.name' id="name" name="name" class="form-control" required autofocus>
+				<h4>E-Mail</h4>
+				<input type="email" ng-model='entry.mail' id="mail" name="mail" class="form-control" required>
+				
+				<h4>Eintrag</h4>
+				<textarea style="resize:none" type="text" ng-model='entry.text' id="text" name="text" class="form-control" cols="40" rows="7" required></textarea></br>
+				
+				<button class="btn btn-lg btn-primary btn-block" type="submit" ng-disabled="guestbookForm.$invalid">Abschicken</button>
+			</form>
+		</div>
+		
+		<div ng-show="gotEntries" class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+			<div class="panel panel-info" ng-repeat="entry in entries">
+			    <div class="panel-heading">
+			         <div class="panel-title pull-left">
+			             <strong>{{entry.name}}</strong>
+			         </div>
+			        <div class="panel-title pull-right">{{entry.date | parseDate}}</div>
+			        <div class="clearfix"></div>
+			    </div>
+			    <div class="panel-body" style="white-space: pre-line">{{entry.entry}}</div>
+			</div>
+		</div>
+	</div>
+</div>

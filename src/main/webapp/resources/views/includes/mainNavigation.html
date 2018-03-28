@@ -1,0 +1,186 @@
+<!-- <script type="text/javascript">
+$(document).on('click','.navbar-collapse.in',function(e) {
+    if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
+        $(this).collapse('hide');
+    }
+});
+</script>-->
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container content-infos">
+        <div class="navbar-header">
+            <button type="button" class="navbar-left navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+	          <span class="glyphicon glyphicon-menu-hamburger"></span>
+	          <span class="navmenu">Menü</span>
+            </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav nav-justified hidden-xs">
+                <li ng-class="{active: isRoute('/') == true}"><a ng-click="goTo('/')" role="button">Home</a></li>
+				<li ng-class="{active: isRoute('/aktuell') == true}"><a ng-click="goTo('/aktuell')" role="button">Aktuell</a></li>
+				<li class="dropdown" ng-class="{active: isRoute('/ueberUns/wir') == true || isRoute('/ueberUns/gruendung') == true || isRoute('/ueberUns/geschichte') == true || isRoute('/ueberUns/eintreten') == true || isRoute('/ueberUns/impressum') == true}">
+					<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						Über uns
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li ng-class="{active: isRoute('/ueberUns/wir') == true}"><a ng-click="goTo('/ueberUns/wir')" role="button">Wir</a> </li>
+						<li ng-class="{active: isRoute('/ueberUns/gruendung') == true}"><a ng-click="goTo('/ueberUns/gruendung')" role="button">Gründung</a> </li>
+						<li ng-class="{active: isRoute('/ueberUns/geschichte') == true}"><a ng-click="goTo('/ueberUns/geschichte')" role="button">Geschichte</a> </li>
+						<li ng-class="{active: isRoute('/ueberUns/eintreten') == true}"><a ng-click="goTo('/ueberUns/eintreten')" role="button">Mitglied werden</a> </li>
+						<li ng-class="{active: isRoute('/ueberUns/impressum') == true}"><a ng-click="goTo('/ueberUns/impressum')" role="button">Impressum</a> </li>
+					</ul>
+				</li>
+				<li ng-class="{active: isRoute('/events') == true}"><a ng-click="goTo('/events')" role="button">Events</a></li>
+				<li ng-class="{active: isRoute('/gaestebuch') == true}"><a ng-click="goTo('/gaestebuch')" role="button">Gästebuch</a></li>
+				<li ng-class="{active: isRoute('/galerie') == true}"><a ng-click="goTo('/galerie')" role="button">Galerie</a></li>
+            </ul>
+            
+            <ul class="nav navbar-nav hidden-lg hidden-md hidden-sm">
+                <li ng-class="{active: isRoute('/') == true}"><a ng-click="goTo('/')" role="button" data-toggle="collapse" data-target=".navbar-collapse.in">Home</a></li>
+				<li ng-class="{active: isRoute('/aktuell') == true}"><a ng-click="goTo('/aktuell')" role="button" data-toggle="collapse" data-target=".navbar-collapse.in">Aktuell</a></li>
+				<li class="dropdown" ng-class="{active: isRoute('/ueberUns/wir') == true || isRoute('/ueberUns/gruendung') == true || isRoute('/ueberUns/geschichte') == true || isRoute('/ueberUns/eintreten') == true || isRoute('/ueberUns/impressum') == true}">
+					<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						Über uns
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li ng-class="{active: isRoute('/ueberUns/wir') == true}"><a ng-click="goTo('/ueberUns/wir')" role="button" data-toggle="collapse" data-target=".navbar-collapse.in">Wir</a> </li>
+						<li ng-class="{active: isRoute('/ueberUns/gruendung') == true}"><a ng-click="goTo('/ueberUns/gruendung')" role="button" data-toggle="collapse" data-target=".navbar-collapse.in">Gründung</a> </li>
+						<li ng-class="{active: isRoute('/ueberUns/geschichte') == true}"><a ng-click="goTo('/ueberUns/geschichte')" role="button" data-toggle="collapse" data-target=".navbar-collapse.in">Geschichte</a> </li>
+						<li ng-class="{active: isRoute('/ueberUns/eintreten') == true}"><a ng-click="goTo('/ueberUns/eintreten')" role="button" data-toggle="collapse" data-target=".navbar-collapse.in">Mitglied werden</a> </li>
+						<li ng-class="{active: isRoute('/ueberUns/impressum') == true}"><a ng-click="goTo('/ueberUns/impressum')" role="button" data-toggle="collapse" data-target=".navbar-collapse.in">Impressum</a> </li>
+					</ul>
+				</li>
+				<li ng-class="{active: isRoute('/events') == true}"><a ng-click="goTo('/events')" role="button" data-toggle="collapse" data-target=".navbar-collapse.in">Events</a></li>
+				<li ng-class="{active: isRoute('/gaestebuch') == true}"><a ng-click="goTo('/gaestebuch')" role="button" data-toggle="collapse" data-target=".navbar-collapse.in">Gästebuch</a></li>
+				<li ng-class="{active: isRoute('/galerie') == true}"><a ng-click="goTo('/galerie')" role="button" data-toggle="collapse" data-target=".navbar-collapse.in">Galerie</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  old with login-input-field -->
+<!-- <nav class="navbar navbar-fixed-top navbar-primary">
+			<div>
+			    <div class="navbar-header" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			    	<button type="button" class="navbar-toggle collapsed navbar-toggle-center" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			          <span class="sr-only">Toggle navigation</span>
+			          <span class="glyphicon glyphicon-menu-hamburger"></span>
+			          <span class="navmenu">MENU</span>
+			        </button>
+			    </div>
+			       		    
+			    <div class="container">
+			    	<div class="collapse navbar-collapse navbar-nav-justified" id="bs-example-navbar-collapse-1">
+			    		<ul class="nav navbar-nav nav-justified">
+			    			<li ng-class="{active: selected==1}"><a ng-click="route('/', 1)" role="button">Home</a></li>
+							<li ng-class="{active: selected==2}"><a ng-click="route('/aktuell', 2)" role="button">Aktuell</a></li>
+							<li class="dropdown" ng-class="{active: selected > 2.9 && selected < 4}">
+								<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									Über uns
+									<span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu">
+									<li ng-class="{active: selected==3.1}"><a ng-click="route('/jgb/gruendung', 3.1)" role="button">Gründung</a> </li>
+									<li ng-class="{active: selected==3.2}"><a ng-click="route('/jgb/geschichte', 3.2)" role="button">Geschichte</a> </li>
+									<li ng-class="{active: selected==3.3}"><a ng-click="route('/jgb/wir', 3.3)" role="button">Wir</a> </li>
+									<li ng-class="{active: selected==3.4}"><a ng-click="route('/jgb/kontakt', 3.4)" role="button">Kontakt</a> </li>
+								</ul>
+							</li>
+							<li ng-class="{active: selected==4}"><a ng-click="route('/events', 4)" role="button">Events</a></li>
+							<li class="dropdown" ng-class="{active: selected > 4.9 && selected < 6}">
+								<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									Mitglieder 
+									<b class="caret"> </b>
+								</a>
+								<ul class="dropdown-menu">
+									<li ng-class="{active: selected==5.1}"><a ng-click="route('/mitglieder/vorstand', 5.1)" role="button">Vorstand</a> </li>
+									<li ng-class="{active: selected==5.2}"><a ng-click="route('/mitglieder/eintritt', 5.2)" role="button">Mitglied werden</a> </li>
+								</ul>
+							</li>
+							<li ng-class="{active: selected==6}"><a ng-click="route('/gaestebuch', 6)" role="button">Gästebuch</a></li>
+							<li ng-class="{active: selected==7}"><a ng-click="route('/gallerie', 7)" role="button">Gallerie</a></li>
+							
+							<li><a href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2" ng-bind="lblLogin" ng-click="updateLabel()"></a></li>
+						</ul>
+						<div class="collapse nav navbar-nav nav-collapse" id="nav-collapse2">
+				            <form class="navbar-form navbar-right form-inline" role="form" ng-submit="login()">
+				            	<div class="form-group">
+									<label class="sr-only" for="User">User</label>
+									<input type="text" class="form-control" id="username" name="username" placeholder="Benutzer" ng-model="credentials.username" autofocus required="true"/>
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="Password">Passwort</label>
+									<input type="password" class="form-control" id="password" name="password" ng-model="credentials.password" placeholder="Passwort" required="true"/>
+								</div>
+								<!-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> -->
+							<!-- <button type="submit" class="btn btn-success">Anmelden</button>
+						</form>
+					</div>
+		    	</div>
+		    </div>
+		</div>
+	</nav>-->
+	
+
+<!-- old with justified-fail -->	
+<!--
+<nav class="navbar navbar-default navbar-fixed-top text-primary">
+	<div>
+	    <div class="navbar-header" data-toggle="collapse">
+	    	<button type="button" class="navbar-toggle collapsed navbar-toggle-center" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	          <span class="sr-only">Toggle navigation</span>
+	          <span class="glyphicon glyphicon-menu-hamburger"></span>
+	          <span class="navmenu">MENU</span>
+	        </button>
+	    </div>
+	       		    
+	    <div class="container">
+	    	<div class="collapse navbar-collapse navbar-nav-justified" id="bs-example-navbar-collapse-1">
+	    		<ul class="nav navbar-nav nav-justified">
+	    			<li ng-class="{active: isRoute('/') == true}"><a ng-click="goTo('/')" role="button">Home</a></li>
+					<li ng-class="{active: isRoute('/aktuell') == true}"><a ng-click="goTo('/aktuell')" role="button">Aktuell</a></li>
+					<li class="dropdown" ng-class="{active: isRoute('/ueberUns/wir') == true || isRoute('/ueberUns/gruendung') == true || isRoute('/ueberUns/geschichte') == true || isRoute('/ueberUns/eintreten') == true || isRoute('/ueberUns/impressum') == true}">
+						<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							Über uns
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li ng-class="{active: isRoute('/ueberUns/wir') == true}"><a ng-click="goTo('/ueberUns/wir')" role="button">Wir</a> </li>
+							<li ng-class="{active: isRoute('/ueberUns/gruendung') == true}"><a ng-click="goTo('/ueberUns/gruendung')" role="button">Gründung</a> </li>
+							<li ng-class="{active: isRoute('/ueberUns/geschichte') == true}"><a ng-click="goTo('/ueberUns/geschichte')" role="button">Geschichte</a> </li>
+							<li ng-class="{active: isRoute('/ueberUns/eintreten') == true}"><a ng-click="goTo('/ueberUns/eintreten')" role="button">Mitglied werden</a> </li>
+							<li ng-class="{active: isRoute('/ueberUns/impressum') == true}"><a ng-click="goTo('/ueberUns/impressum')" role="button">Impressum</a> </li>
+						</ul>
+					</li>
+					<li ng-class="{active: isRoute('/events') == true}"><a ng-click="goTo('/events')" role="button">Events</a></li>
+					<li ng-class="{active: isRoute('/gaestebuch') == true}"><a ng-click="goTo('/gaestebuch')" role="button">Gästebuch</a></li>
+					<li ng-class="{active: isRoute('/gallerie') == true}"><a ng-click="goTo('/gallerie')" role="button">Gallerie</a></li>
+				</ul>
+	    	</div>
+	    </div>
+	</div>
+</nav>-->

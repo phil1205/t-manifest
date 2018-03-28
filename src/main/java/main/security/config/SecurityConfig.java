@@ -24,16 +24,23 @@ import main.security.service.UserDetailsServiceImpl;
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-  
+	
+	/*
+	// handler
 	@Autowired
 	private RestUnauthorizedEntryPoint restAuthenticationEntryPoint;
 	@Autowired
-	private RestAuthenticationSuccessHandler restAuthenticationSuccessHandler;
-	@Autowired
 	private RestAccessDeniedHandler restAccessDeniedHandler;
 	
+	@Autowired
+	private RestAuthenticationSuccessHandler restAuthenticationSuccessHandler;
+	@Autowired
+	private RestAuthenticationFailureHandler restAuthenticationFailureHandler;
+	*/
 	
-    @Autowired
+	
+	// userDeatils
+	@Autowired
 	private UserDetailsServiceImpl userDetailsServiceImpl;
 	
 	@Autowired
@@ -49,24 +56,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		    /*.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
 		    .and()*/
 		.authorizeRequests()
-	        .antMatchers("/users", "/authenticate", "/roles", "/logout", "/index.html", "/home.html", "/login.html", "/").permitAll()
-	        .antMatchers("/vorstand/**").hasRole("ADMIN")
-			.antMatchers("/**").hasRole("NORMALUSER")
+	        .antMatchers("/", "/roles", "/users", "/logout", "/events", "/eventYear", "/eventTasks", "/defaultTasks", "/persons", "/eventYear/**", "/eventYear/query/**").permitAll()
+	        
+			.antMatchers("/js/app/private/**").hasRole("EXECUTIVE")
+			.antMatchers("/js/app/public/**").permitAll()
+			
+			.antMatchers("/templates/private/**").hasRole("EXECUTIVE")
+			.antMatchers("/templates/public/**").permitAll()
+			
+			.antMatchers("/css/**").permitAll()
+			.antMatchers("/img/**").permitAll()
+			
 	        .anyRequest().authenticated()
 	    .and()
-		    .exceptionHandling()
-		    .authenticationEntryPoint(restAuthenticationEntryPoint)
-		    .accessDeniedHandler(restAccessDeniedHandler)
-	    .and()
 	    	.formLogin()
+	    		//.loginPage("/vorstand/uebersicht")
 		    	.loginProcessingUrl("/authenticate")
-				.successHandler(restAuthenticationSuccessHandler)
-				.usernameParameter("username")
-				.passwordParameter("password")
-				.permitAll()
 	    .and()
 		    .logout()
-			.invalidateHttpSession(false)
 	        .logoutSuccessUrl("/logout")
 	        .logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler())
 	        .deleteCookies("JSESSIONID")
