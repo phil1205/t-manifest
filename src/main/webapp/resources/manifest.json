@@ -1,8 +1,8 @@
 {
-	“name“: “VW Selfservices“,
-	“short_name“: “Selfservices“,
-	“lang“: “de-DE“,
-	“display“: “fullscreen“,
+  "name": "VW Selfservices",
+  "short_name": "Selfservices",
+  "lang": "de-DE",
+  "display": "fullscreen“,
 	“Icons“: [{
 		“src“: “img/icons/favicon.ico“,
 		“sizes“: “48x48“,
